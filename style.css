@@ -1,0 +1,222 @@
+:root {
+    /* ライトモード (デフォルト) */
+    --primary: #27ae60;
+    --accent: #2980b9;
+    --bg: #f0f2f5;
+    --container-bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --text: #2c3e50;
+    --text-muted: #7f8c8d;
+    --border: #dddddd;
+    --input-bg: #ffffff;
+    --formula-bg: #eeeeee;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* ダークモード */
+        --bg: #121212;
+        --container-bg: #1e1e1e;
+        --card-bg: #2d2d2d;
+        --text: #e0e0e0;
+        --text-muted: #b0b0b0;
+        --border: #444444;
+        --input-bg: #252525;
+        --formula-bg: #2d2d2d;
+    }
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    background: var(--container-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 700px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+.input-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text);
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:disabled {
+    background: #777;
+    cursor: not-allowed;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+    display: none;
+}
+
+.result-card {
+    background: var(--container-bg);
+    border: 2px solid var(--border);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.result-card.best {
+    border-color: var(--primary);
+}
+
+.result-card.over {
+    border-color: var(--accent);
+}
+
+.card-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--text-muted);
+}
+
+.res-val {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.best .res-val { color: var(--primary); }
+.over .res-val { color: var(--accent); }
+
+.error-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.details {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+.status {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 5px;
+    min-height: 1.2em;
+}
+
+.formula-info {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 15px;
+    background: var(--formula-bg);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 480px) {
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.error-display {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 1.2em;
+    text-align: center;
+}
+
+/* ダークモード時のエラー色調整 */
+@media (prefers-color-scheme: dark) {
+    .error-display {
+        color: #ff6b6b;
+    }
+}
