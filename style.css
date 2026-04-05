@@ -1,5 +1,4 @@
 :root {
-    /* ライトモード (デフォルト) */
     --primary: #27ae60;
     --accent: #2980b9;
     --bg: #f0f2f5;
@@ -14,7 +13,6 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        /* ダークモード */
         --bg: #121212;
         --container-bg: #1e1e1e;
         --card-bg: #2d2d2d;
@@ -214,7 +212,6 @@ button:disabled {
     text-align: center;
 }
 
-/* ダークモード時のエラー色調整 */
 @media (prefers-color-scheme: dark) {
     .error-display {
         color: #ff6b6b;

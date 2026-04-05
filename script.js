@@ -1,14 +1,8 @@
-/**
- * script.js
- * MCBE ダメージ逆算ツール
- */
-
 const calcBtn = document.getElementById('calcBtn');
 const status = document.getElementById('status');
 const errorMsg = document.getElementById('error-msg');
 const resultGrid = document.getElementById('resultGrid');
 
-// 多言語リソース
 const i18n = {
     ja: {
         title: "MCBE ダメージ逆算ツール",
